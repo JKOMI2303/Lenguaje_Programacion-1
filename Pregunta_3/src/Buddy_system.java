@@ -16,9 +16,6 @@ public class Buddy_system {
             ub = b;
             nm=name;
         }
-        void printPair() {
-        	System.out.println(lb +"--------"+   ub);
-        }
         
         int getFirt() {
         	return lb;
@@ -73,7 +70,7 @@ public class Buddy_system {
     	for (String i : mapper.keySet()) {
     			if(i==name) {
     				 System.out.println("El nombre ya se encuentra reservando memoria, asegurece de que el nombre es correcto y en caso de que lo sea desasigne y asigne el espacio total");
-    				 return;
+    				 return ;
     			}
     	      
     	    }
@@ -270,6 +267,7 @@ public class Buddy_system {
     		
     	
     }
+    
     public static boolean isAlpha(String s)
     {
         if (s == null) {
@@ -285,18 +283,17 @@ public class Buddy_system {
         }
         return true;
     }
-     
+    
+    
     private static Scanner input =new Scanner(System.in);
     private static Scanner acciones =new Scanner(System.in);
     public static void main(String args[]) throws IOException 
     { 
 
           
-   
-        
-
-        
-    	
+ 
+     
+       
         HashMap<String,Integer> map=new HashMap<>();
         map.put("SALIR", 1);
         map.put("MOSTRAR", 2);
@@ -349,6 +346,7 @@ public class Buddy_system {
         	}
         	
         }
+        
     } 
 
 }
