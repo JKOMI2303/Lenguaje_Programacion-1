@@ -1,0 +1,9 @@
+coroutine f():
+    int c = 1
+    loop:   
+        c = c + C
+        print(c)
+        if c mod 3 == 2:
+            transfer w()
+        else:
+            transfer t()

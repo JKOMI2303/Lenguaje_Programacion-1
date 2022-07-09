@@ -1,0 +1,11 @@
+coroutine w():
+    int a = 0
+    loop:
+        a = 2 * a + A
+        print(a)
+        if a mod 3 == 0:
+            transfer t()
+        else:
+            transfer f() 
+
+
