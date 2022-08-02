@@ -1,5 +1,3 @@
-from ast import Return
-
 
 class Herencia:
     def __init__(self, nombre_clase : str  , metodos_clase:list,metodos_herencia={},clase_padre=None):
@@ -18,7 +16,7 @@ class Tabla_metodos_virtuales:
     def definir(self,accion :list):
         hijo=accion[0]
         if hijo in self.tabla:
-            return f" La clase hija:{hijo} existe"
+            return f" Error: La clase {hijo} ya existe"
         else:
             if accion[1]==":": ## hereda de la clase padre que esta en accion[2]
                 padre=accion[2]
@@ -26,7 +24,7 @@ class Tabla_metodos_virtuales:
                     clasepadre=self.tabla[padre]
                     metodoshijo=accion[3:]
                 else:
-                    return f" la clase padre: {padre} no existe"
+                    return f" Error: la clase {padre} no existe"
             else:
                 clasepadre=None
                 metodoshijo =accion[1:]
@@ -34,7 +32,7 @@ class Tabla_metodos_virtuales:
             for x in metodoshijo:
                 contador=metodoshijo.count(x)
                 if(contador>1):
-                    return f"los metodos en la clase hija no se pueden repetir"
+                    return f"Error: El metodo {x} no se pueden repetir"
                 else:
                     pass
             clasehijo= Herencia(hijo,metodoshijo,{},clasepadre)
@@ -48,32 +46,32 @@ class Tabla_metodos_virtuales:
             meetodos_clases=clase.metodos_herencia.copy()
             resultado=""
             for metodo in meetodos_clases.keys():
-               resultado+=f"{metodo}->{clase.metodos_herencia[metodo]}:: {metodo }\n"
+               resultado+=f"{metodo} -> {clase.metodos_herencia[metodo]} :: {metodo }\n"
             
             return resultado
         else:
-            return  f" la clase: {accion[0]} no existe"
+            return  f" Error: la {accion[0]} no existe"
 
 
 
 if __name__ == "__main__":
-    tmv = Tabla_metodos_virtuales()
+    tabla = Tabla_metodos_virtuales()
     while True:
         print("\nIngrese una accion:\nCLASS <tipo> <nombre>\nDESCRIBIR <nombre> <expr>\nSALIR\n\n")
         accion = input("")
         accion = accion.strip().split()
         if accion:
             if accion[0] == "CLASS":
-                mensaje = tmv.definir(accion[1:])
+                mensaje = tabla.definir(accion[1:])
             elif accion[0] == "DESCRIBIR":
-                mensaje = tmv.describir(accion[1:])
+                mensaje = tabla.describir(accion[1:])
             elif accion[0] == "SALIR":
                 exit()
 
             else:
                 mensaje = "Ingrese una acción válida"
         else:
-            mensaje = "No ingreso ninguna accion"
+            mensaje = "No ha ingresado ninguna accion"
     
         print(mensaje)
 
