@@ -17,7 +17,7 @@ class Cadabra extends Abra {
 }
 
 class PataDeCabra extends Cadabra {
-    int b = Y + Z, c = Z
+    int b = 9, c = 9
     fun cus(int x): int {
         a = x - 3
         c = a +b  * c
